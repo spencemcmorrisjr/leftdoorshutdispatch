@@ -2,149 +2,21 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <title>Driver Signup | Left Door Shut Dispatch</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SPL Dispatch | Driver Portal</title>
+
   <style>
     body {
-      font-family: Arial, sans-serif;
-      background: #f4f4f9;
-      margin: 0;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: linear-gradient(180deg, #020617, #0f172a);
+      color: #e5e7eb;
+      padding: 20px;
     }
+
     .container {
-      background: #fff;
-      padding: 30px 40px;
-      border-radius: 12px;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-      width: 100%;
-      max-width: 450px;
-    }
-    h2 {
-      text-align: center;
-      margin-bottom: 25px;
-      color: #222;
-    }
-    form {
-      display: flex;
-      flex-direction: column;
-    }
-    label {
-      margin-bottom: 5px;
-      font-weight: bold;
-      color: #555;
-    }
-    input[type="text"],
-    input[type="email"],
-    input[type="tel"],
-    input[type="password"],
-    input[type="file"] {
-      padding: 10px;
-      margin-bottom: 15px;
-      border: 1px solid #ccc;
-      border-radius: 8px;
-      font-size: 16px;
-    }
-    button {
-      background: #1e40af;
-      color: #fff;
-      border: none;
-      padding: 12px;
-      border-radius: 8px;
-      font-size: 16px;
-      cursor: pointer;
-      transition: background 0.3s;
-    }
-    button:hover {
-      background: #3b82f6;
-    }
-    .note {
-      font-size: 14px;
-      color: #888;
-      text-align: center;
-      margin-top: 10px;
-    }
-    #dashboard {
-      display: none;
-    }
-  </style>
-</head>
-<body>
-
-  <!-- Signup Form -->
-  <div class="container" id="signup">
-    <h2>Driver Signup</h2>
-    <form id="signupForm">
-      <label for="fullName">Full Name</label>
-      <input type="text" id="fullName" name="fullName" required>
-
-      <label for="email">Email</label>
-      <input type="email" id="email" name="email" required>
-
-      <label for="phone">Phone Number</label>
-      <input type="tel" id="phone" name="phone" required>
-
-      <label for="password">Password</label>
-      <input type="password" id="password" name="password" required>
-
-      <!-- File upload removed -->
-      <button type="submit">Sign Up</button>
-    </form>
-    <div class="note">
-      All additional documents can be uploaded after signup inside your dashboard.
-    </div>
-  </div>
-
-  <!-- Dashboard after signup -->
-  <div class="container" id="dashboard">
-    <h2>Welcome, <span id="driverName"></span></h2>
-    <p>Upload your documents here:</p>
-    <form id="uploadForm">
-      <input type="file" id="fileUpload" name="fileUpload" multiple>
-      <button type="submit">Upload Files</button>
-    </form>
-    <div class="note">
-      Your files are safe and only visible to you and SPL Dispatch.
-    </div>
-    <div id="uploadedFiles"></div>
-  </div>
-
-  <script>
-    const signupForm = document.getElementById('signupForm');
-    const uploadForm = document.getElementById('uploadForm');
-    const signupDiv = document.getElementById('signup');
-    const dashboardDiv = document.getElementById('dashboard');
-    const driverNameSpan = document.getElementById('driverName');
-    const uploadedFilesDiv = document.getElementById('uploadedFiles');
-
-    // Simulate signup process
-    signupForm.addEventListener('submit', (e) => {
-      e.preventDefault();
-      const name = document.getElementById('fullName').value;
-      driverNameSpan.textContent = name;
-      signupDiv.style.display = 'none';
-      dashboardDiv.style.display = 'block';
-    });
-
-    // Simulate file uploads
-    uploadForm.addEventListener('submit', (e) => {
-      e.preventDefault();
-      const files = document.getElementById('fileUpload').files;
-      if(files.length === 0) return;
-      uploadedFilesDiv.innerHTML = '<p><strong>Uploaded Files:</strong></p>';
-      const list = document.createElement('ul');
-      for(let i=0; i<files.length; i++) {
-        const li = document.createElement('li');
-        li.textContent = files[i].name;
-        list.appendChild(li);
-      }
-      uploadedFilesDiv.appendChild(list);
-      // Clear file input
-      document.getElementById('fileUpload').value = '';
-    });
-  </script>
-
-</body>
-</html>
+      max-width: 440px;
+      margin: 60px auto;
+      background: #020617;
+      padding: 28px;
+      border-radius: 14px;
+      box-shadow: 0 20px 40px rgba(0,0,0,
