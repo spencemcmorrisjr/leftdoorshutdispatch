@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Driver Checklist | Left Door Shut Dispatch</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: linear-gradient(180deg, #020617, #0f172a);
+      color: #e5e7eb;
+      min-height: 100vh;
+    }
+
+    .container {
+      max-width: 720px;
+      margin: 40px auto;
+      padding: 20px;
+    }
+
+    header {
+      background: #020617;
+      border-radius: 16px;
+      padding: 22px;
+      margin-bottom: 24px;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 26px;
+      color: #f8fafc;
+    }
+
+    .subtitle {
+      margin-top: 6px;
+      font-size: 14px;
+      color: #94a3b8;
+    }
+
+    .list {
+      background: #020617;
+      border-radius: 16px;
+      padding: 20px;
+      box-shadow: 0 15px 30px rgba(0,0,0,0.35);
+    }
+
+    .item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 14px 10px;
+      border-bottom: 1px solid #1e293b;
+    }
+
+    .item:last-child {
+      border-bottom: none;
+    }
+
+    .label {
+      font-size: 15px;
+    }
+
+    .status {
+      font-size: 13px;
+      font-weight: 700;
+      padding: 6px 12px;
+      border-radius: 999px;
+    }
+
+    .complete {
+      background: #022c22;
+      color: #4ade80;
+    }
+
+    .missing {
+      background: #2a0f14;
+      color: #f87171;
+    }
+
+    .footer {
+      text-align: center;
+      font-size: 12px;
+      color: #64748b;
+      margin-top: 32px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+
+    <header>
+      <h1>Driver Checklist</h1>
+      <div class="subtitle">
+        Left Door Shut Dispatch • Compliance Status
+      </div>
+    </header>
+
+    <div class="list">
+
+      <div class="item">
+        <div class="label">Driver’s License</div>
+        <div class="status complete">RECEIVED</div>
+      </div>
+
+      <div class="item">
+        <div class="label">Medical Card</div>
+        <div class="status missing">MISSING</div>
+      </div>
+
+      <div class="item">
+        <div class="label">W-9 Form</div>
+        <div class="status complete">RECEIVED</div>
+      </div>
+
+      <div class="item">
+        <div class="label">Insurance Documents</div>
+        <div class="status missing">MISSING</div>
+      </div>
+
+      <div class="item">
+        <div class="label">Signed Dispatch Agreement</div>
+        <div class="status complete">RECEIVED</div>
+      </div>
+
+    </div>
+
+    <div class="footer">
+      © 2026 Left Door Shut Dispatch<br>
+      Internal driver compliance system
+    </div>
+
+  </div>
+
+</body>
+</html>
