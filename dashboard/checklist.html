@@ -136,6 +136,10 @@
     </div>
 
   </div>
-
+<script>
+  if (sessionStorage.getItem("lds_access") !== "granted") {
+    window.location.href = "gate.html";
+  }
+</script>
 </body>
 </html>
