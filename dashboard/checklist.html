@@ -79,30 +79,18 @@ a.doc {
   <div id="drivers"></div>
 </div>
 
+<!-- Tabletop.js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tabletop.js/1.5.4/tabletop.min.js"></script>
 <script>
-/* === CONFIG === */
-const SHEET_ID = "1RUV1fa3QPfDCvUHlrLSkHKDSI75dlBFRb-tGP8lOhN8";
-const TAB_NAME = "Operating Documents";
+const SHEET_URL = "https://docs.google.com/spreadsheets/d/1RUV1fa3QPfDCvUHlrLSkHKDSI75dlBFRb-tGP8lOhN8";
 
-/* === DO NOT TOUCH BELOW === */
-const URL = `https://opensheet.elk.sh/${SHEET_ID}/${encodeURIComponent(TAB_NAME)}`;
-
-fetch(URL)
-  .then(res => res.json())
-  .then(data => renderDrivers(data))
-  .catch(err => {
-    document.getElementById("drivers").innerHTML =
-      "<p>Error loading driver data.</p>";
-    console.error(err);
-  });
-
-function statusRow(label, link) {
-  if (link && link.trim() !== "") {
+function statusRow(label, value) {
+  if (value && value.trim() !== "") {
     return `
       <div class="row">
         <div class="label">${label}</div>
         <div class="status complete">RECEIVED</div>
-        <a class="doc" href="${link}" target="_blank">View</a>
+        <a class="doc" href="${value}" target="_blank">View</a>
       </div>`;
   } else {
     return `
@@ -129,21 +117,33 @@ function agreementStatus(label, value) {
   }
 }
 
-function renderDrivers(drivers) {
+function renderDrivers(data) {
   const container = document.getElementById("drivers");
 
-  drivers.forEach(d => {
+  data.forEach(d => {
     container.innerHTML += `
       <div class="card">
         <div class="driver-name">${d.Name || "Unnamed Driver"}</div>
         ${statusRow("W-9", d["W9"])}
         ${statusRow("CDL", d["License"])}
         ${statusRow("Insurance", d["Insurance"])}
-        ${agreementStatus("Driver Agreement", d["Driver agreement  Signed?"])}
+        ${agreementStatus("Driver Agreement", d["Driver Agreement Signed"])}
       </div>
     `;
   });
 }
+
+// Initialize Tabletop
+Tabletop.init({
+  key: SHEET_URL,
+  simpleSheet: false,
+  wanted: ["Operating Documents"],
+  callback: function(data, tabletop) {
+    const sheetData = tabletop.sheets("Operating Documents").all();
+    renderDrivers(sheetData);
+  },
+  debug: false
+});
 </script>
 </body>
 </html>
